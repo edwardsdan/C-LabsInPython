@@ -2,7 +2,6 @@ import re
 from decimal import Decimal
 
 def testYN(userInput):
-    # Why does this one work and the other one doesn't?
     while(userInput != 'y' or 'n'):
         if(userInput == 'y'):
             return 1
@@ -10,16 +9,6 @@ def testYN(userInput):
             return 0
         else:
             userInput = input("I don't understand. Try again!")
-    
-    # This one doesn't work how I want it to. Why?
-    # while (userInput != 'y' or 'n'):
-    #     userInput = input("I don't understand. Try again!")
-    #     continue
-
-    # if(userInput=='y'):
-    #     return 1
-    # elif(userInput=='n'):
-    #     return 0
 
 def promptContinue():
     testInput = input('Would you like to continue?')
