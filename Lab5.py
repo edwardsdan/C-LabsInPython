@@ -1,3 +1,5 @@
+import re
+
 def TestYN(testInput):
     while(testInput != 'y' or 'n'):
         if(testInput == 'y'):
@@ -15,8 +17,17 @@ def ValidateContinue():
     else:
         print('WOOOOOOOOOOOOOOO!!!!!!')
 
+def ValidateInt():
+    numberRegex = re.compile('^[1-9]$|^[1-2][0-9]$')
+    userInput = input('Enter an integer: ')
+    while not (numberRegex.match(userInput)):
+        userInput = input('uwotm8? ')
+    return userInput
+# def CalculateFactorial():
+
+
 while(1):
-    userInput = int(input('Enter an integer: '))
+    userInput = int(ValidateInt())
     factorial = 1
     i = 1
     while (userInput != 1):
