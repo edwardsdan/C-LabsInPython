@@ -23,16 +23,19 @@ def ValidateInt():
     while not (numberRegex.match(userInput)):
         userInput = input('uwotm8? ')
     return userInput
-# def CalculateFactorial():
 
+def CalculateFactorial(userInput):
+    factorial = 1
+    if (userInput > 1):
+        factorial = userInput*CalculateFactorial(userInput-1)
+    return factorial
 
 while(1):
     userInput = int(ValidateInt())
-    factorial = 1
-    i = 1
-    while (userInput != 1):
-        factorial *= userInput
-        userInput -= 1
-
+    # factorial = 1
+    # while (userInput != 1):
+    #     factorial *= userInput
+    #     userInput -= 1
+    factorial = CalculateFactorial(userInput)
     print(str(factorial))
     ValidateContinue()
