@@ -15,11 +15,13 @@ def ValidateContinue():
     else:
         print('WOOOOOOOOOOOOOOO!!!!!!')
 
-userInput = int(input('Enter an integer: '))
-factorial = 1
-i = 1
-while (userInput != 1):
-    factorial *= userInput
-    userInput -= 1
+while(1):
+    userInput = int(input('Enter an integer: '))
+    factorial = 1
+    i = 1
+    while (userInput != 1):
+        factorial *= userInput
+        userInput -= 1
 
-print(str(factorial))
+    print(str(factorial))
+    ValidateContinue()
