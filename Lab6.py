@@ -2,10 +2,10 @@ import random
 import re
 
 class DiceRoller:
-    
+
     @staticmethod
-    def isValidDice():
-        userInput = input('How many sides for this dice? (even, <= 20) ')
+    def isValidDice(diceNumber):
+        userInput = input(f'How many sides for #{diceNumber}? (even, >= 4 & <= 20) ')
         sidesRegex = re.compile('^[468]$|^[1][02468]$|^20$')
         while not (sidesRegex.match(userInput)):
             userInput = input('uwotm8? Try again! ')
@@ -55,7 +55,7 @@ def Game():
         diceList = [0 for i in range(DiceRoller.isInt())]
         i = 0
         while (i < len(diceList)):
-            diceList[i] = DiceRoller.isValidDice()
+            diceList[i] = DiceRoller.isValidDice([i+1])
             i += 1
         if (DiceRoller.AskRollDice(diceList, rolls) == 1):
             rolls += 1
