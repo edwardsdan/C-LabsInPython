@@ -16,15 +16,16 @@ class DiceRoller:
             userInput = input('uwotm8? Try again! ')
         return int(userInput)
 
-    def RollDice(self, diceList):
-        print('Your results: ')
+    def RollDice(self, diceList, rolls):
+        print(f'Roll #{rolls}:')
         for die in diceList:
             print(random.randint(1,die))
             
-    def AskRollDice(self, diceList):
+    def AskRollDice(self, diceList, rolls):
         promptRoll = input('Would you like to roll now? (y/n) ')
         if(TestYN(promptRoll) == 1):
-            self.RollDice(diceList)
+            self.RollDice(diceList, rolls)
+            return 1
 
 def TestYN(testInput):
     while(testInput != 'y' or 'n'):
@@ -45,13 +46,15 @@ def ValidateContinue():
 
 def Game():
     GameRunner = DiceRoller()
+    rolls = 1
     while(1):
         diceList = [0 for i in range(GameRunner.isInt())]
         i = 0
         while (i < len(diceList)):
             diceList[i] = GameRunner.isValidDice()
             i += 1
-        GameRunner.AskRollDice(diceList)
+        if (GameRunner.AskRollDice(diceList, rolls) == 1):
+            rolls += 1
         ValidateContinue()
 
 Game()
