@@ -27,7 +27,7 @@ def PromptContinue():
         else:
             print('Most excellent!')
 
-while(1):
+def PrintConditions():
     userInput = ValidateNumber()
     if (userInput % 2 == 0):
         if(userInput >= 2 and userInput < 25):
@@ -41,4 +41,7 @@ while(1):
             print('Odd')
         else:
             print(userInput, 'Odd')
+
+while(1):
+    PrintConditions()
     PromptContinue()
