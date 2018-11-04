@@ -32,10 +32,10 @@ def CalculateFactorial(userInput):
 
 while(1):
     userInput = int(ValidateInt())
-    # factorial = 1
-    # while (userInput != 1):
-    #     factorial *= userInput
-    #     userInput -= 1
-    factorial = CalculateFactorial(userInput)
+    factorial = 1
+    while (userInput != 1):
+        factorial *= userInput
+        userInput -= 1
+    # factorial = CalculateFactorial(userInput)
     print(str(factorial))
     ValidateContinue()
