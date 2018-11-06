@@ -45,7 +45,7 @@ def TestYN(userInput):
             userInput = input('I don\'t understand! Try again! ')
     
 
-def GetInputs():
+def Run():
     while(1):
         TestName()
         TestEmail()
@@ -53,4 +53,4 @@ def GetInputs():
         TestDate()
         TestContinue()
 
-GetInputs()
+Run()
