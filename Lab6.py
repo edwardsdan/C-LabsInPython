@@ -4,7 +4,15 @@ import re
 class DiceRoller:
 
     @staticmethod
-    def isValidDice(diceNumber):
+    def CreateDice(diceList):
+        i = 0
+        while (i < len(diceList)):
+            diceList[i] = DiceRoller.findValidDice([i+1])
+            i += 1
+        return diceList
+
+    @staticmethod
+    def findValidDice(diceNumber):
         userInput = input(f'How many sides for #{diceNumber}? (even, >= 4 & <= 20) ')
         sidesRegex = re.compile('^[468]$|^[1][02468]$|^20$')
         while not (sidesRegex.match(userInput)):
@@ -12,7 +20,7 @@ class DiceRoller:
         return int(userInput)
 
     @staticmethod
-    def isInt():
+    def findValidInt():
         userInput = input('How many dice do you want to roll? (<=20) ')
         numberRegex = re.compile('^[1-9]$|^1[0-9]$|^20$')
         while not (numberRegex.match(userInput)):
@@ -52,11 +60,8 @@ def ValidateContinue():
 def Game():
     rolls = 1
     while(1):
-        diceList = [0 for i in range(DiceRoller.isInt())]
-        i = 0
-        while (i < len(diceList)):
-            diceList[i] = DiceRoller.isValidDice([i+1])
-            i += 1
+        diceList = [0 for i in range(DiceRoller.findValidInt())]
+        diceList = DiceRoller.CreateDice(diceList)
         if (DiceRoller.AskRollDice(diceList, rolls) == 1):
             rolls += 1
         ValidateContinue()
